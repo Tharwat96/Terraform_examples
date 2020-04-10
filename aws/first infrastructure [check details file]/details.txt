@@ -1,0 +1,8 @@
+ - 1 VPC
+ - 4 subnets, 2 public ones and 2 private
+ - 2 route tables, one that is private and one that is public
+ - 5 ec2 instances--> 3 public, 1 bastion for SSH forwarding, 2 public ones
+                  |
+                  |
+                  --> 2 private
+- 1 security group for opening SSH port 22 tcp

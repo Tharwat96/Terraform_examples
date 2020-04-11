@@ -1,0 +1,31 @@
+pipeline {
+ agent any
+ environment {
+  AWS_ACCESS_KEY_ID = credentials('jenkins_aws_secret_key_id')
+  AWS_SECRET_ACCESS_KEY = credentials('jenkins_aws_secret_access_key')
+ }
+ stages {
+  stage('clone git') { // for display purposes
+   steps { // get terraform scripts
+    git 'https://github.com/Tharwat96/Terraform_examples'
+   }
+  }
+  stage('initializing terraform') {
+   steps {
+    dir("aws") {
+     sh 'terraform init'
+    }
+   }
+  }
+
+   stage('terraform apply') {
+    steps {
+     dir("aws") {
+      sh 'terraform apply -auto-approve'
+     }
+    }
+
+
+   }
+  }
+ }

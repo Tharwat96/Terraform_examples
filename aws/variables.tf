@@ -13,3 +13,10 @@ variable "az-1" {
 variable "az-2" {
   default = "us-east-1b"
 }
+
+variable "jenkins_aws_secret_key_id" {
+}
+
+variable "jenkins_aws_secret_access_key" {
+}
+
